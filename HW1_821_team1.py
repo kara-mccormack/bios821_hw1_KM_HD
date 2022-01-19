@@ -35,7 +35,7 @@ def analyze_data(list, command):
 
     if command == "average":
         # this computes the average of a list of integers
-        average = sum(list[0] + list[1])/(len(list[0]) + len(list[1]))
+        average = sum(list[0] + list[1])/(n1 + n2)
         return(average)
     elif command == "standard deviation":
         # this computes the std. deviation of list
