@@ -1,18 +1,25 @@
 # Create function to get data
-def get_data(path):
-    """Python Function to read in .txt file"""
+from typing import List
+from xxlimited import Str
+
+
+def get_data(path: str) -> str:
+    """Python Function to read in .txt file."""
     with open(path, "r") as file:
         full_list = []
         for line in file:
             line = [int(i) for i in line.split()]
             full_list.append(line)
     return full_list
-    # this returns a list
+
 
 
 # To use the get_data function make sure you pull a file from your directory
-# test = get_data("/Users/hannahdamico/Desktop/W22/BIOSTAT 821/example.txt")
-# test = get_data("/Users/maireaddillon/biostat821/example.txt")
+test = get_data("/Users/hannahdamico/Desktop/W22/BIOSTAT 821/example.txt")
+
+test2 = get_data2("/Users/hannahdamico/Desktop/W22/BIOSTAT 821/example.txt")
+
+
 
 import math
 
@@ -68,10 +75,3 @@ def analyze_data(list, command):
         # correlation
         corr = cov / math.sqrt(var1 * var2)
         return corr
-
-
-# Run function for each command
-# print(analyze_data(test, "average"))
-# print(analyze_data(test, "standard deviation"))
-# print(analyze_data(test, "covariance"))
-# print(analyze_data(test, "correlation"))
