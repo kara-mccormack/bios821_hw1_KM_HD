@@ -1,9 +1,7 @@
-# Create function to get data
-from typing import List
-from xxlimited import Str
+import math
 
-
-def get_data(path: str) -> str:
+#  Create function to get data
+def get_data(path: str) -> list:
     """Python Function to read in .txt file."""
     with open(path, "r") as file:
         full_list = []
@@ -13,24 +11,22 @@ def get_data(path: str) -> str:
     return full_list
 
 
-
 # To use the get_data function make sure you pull a file from your directory
-test = get_data("/Users/hannahdamico/Desktop/W22/BIOSTAT 821/example.txt")
-
-test2 = get_data2("/Users/hannahdamico/Desktop/W22/BIOSTAT 821/example.txt")
-
-
-
-import math
+test = get_data("/Users/maireaddillon/biostat821/example.txt")
 
 # Create function to analyze data
-def analyze_data(list, command):
+def analyze_data(list: list, command: str) -> float:
     """ "Python function to analyze integers"""
     n1 = len(list[0])
     avg1 = sum(list[0]) / n1
 
     n2 = len(list[1])
     avg2 = sum(list[1]) / n2
+
+    average = 0
+    std_dev = 0
+    cov = 0
+    corr = 0
 
     if command == "average":
         # this computes the average of a list of integers
