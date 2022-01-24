@@ -1,4 +1,6 @@
+"""Basic Python Assignment - Biostat 821."""
 import math
+
 
 #  Create function to get data
 def get_data(path: str) -> list:
@@ -6,35 +8,33 @@ def get_data(path: str) -> list:
     with open(path, "r") as file:
         full_list = []
         for line in file:
-            line = [int(i) for i in line.split()]
-            full_list.append(line)
+            half_list = [int(i) for i in line.split()]
+            full_list.append(half_list)
     return full_list
 
 
 # To use the get_data function make sure you pull a file from your directory
-test = get_data("/Users/maireaddillon/biostat821/example.txt")
+# test = get_data("/Users/maireaddillon/biostat821/example.txt")
+test = get_data("/Users/hannahdamico/Desktop/W22/BIOSTAT 821/example.txt")
+
 
 # Create function to analyze data
 def analyze_data(list: list, command: str) -> float:
-    """ "Python function to analyze integers"""
+    """Python function to analyze integers."""
     n1 = len(list[0])
     avg1 = sum(list[0]) / n1
 
     n2 = len(list[1])
     avg2 = sum(list[1]) / n2
-
-    average = 0
-    std_dev = 0
-    cov = 0
-    corr = 0
+    sum_lists = sum(list[0] + list[1])
 
     if command == "average":
         # this computes the average of a list of integers
-        average = sum(list[0] + list[1]) / (n1 + n2)
+        average = sum_lists / (n1 + n2)
         return average
     elif command == "standard deviation":
         # this computes the std. deviation of list
-        average = sum(list[0] + list[1]) / (n1 + n2)
+        average = sum_lists / (n1 + n2)
         # for loop cycles through list, computes std.dev
         numerator = 0
         for i in list[0] + list[1]:
@@ -71,3 +71,5 @@ def analyze_data(list: list, command: str) -> float:
         # correlation
         corr = cov / math.sqrt(var1 * var2)
         return corr
+    else:
+        return(-999)
